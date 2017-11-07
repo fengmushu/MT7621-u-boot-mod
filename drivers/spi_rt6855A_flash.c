@@ -247,7 +247,7 @@ struct chip_info *spi_chip_info = NULL;
 
 static struct chip_info chips_data [] = {
 	/* REVISIT: fill in JEDEC ids, for parts that have them */
-	{ "AT25DF321",		0x1f, 0x47000000, 64 * 1024, 64,  0 },
+	{ "AT25DF321",		0x1f, 0x47000000, 64 * 1024, 256,  0 },
 	{ "AT26DF161",		0x1f, 0x46000000, 64 * 1024, 32,  0 },
 	{ "FL016AIF",		0x01, 0x02140000, 64 * 1024, 32,  0 },
 	{ "FL064AIF",		0x01, 0x02160000, 64 * 1024, 128, 0 },
@@ -255,6 +255,7 @@ static struct chip_info chips_data [] = {
 	{ "MX25L3205D",		0xc2, 0x2016c220, 64 * 1024, 64,  0 },
 	{ "MX25L6405D",		0xc2, 0x2017c220, 64 * 1024, 128, 0 },
 	{ "MX25L12805D",	0xc2, 0x2018c220, 64 * 1024, 256, 0 },
+	{ "XMD25L128",		0x20, 0x7018c220, 64 * 1024, 256, 0 },
 	{ "MX25L25635E",	0xc2, 0x2019c220, 64 * 1024, 512, 1 },
 	{ "S25FL256S",		0x01, 0x02194D01, 64 * 1024, 512, 1 },
 	{ "S25FL128P",		0x01, 0x20180301, 64 * 1024, 256, 0 },
@@ -997,7 +998,7 @@ struct chip_info *chip_prob(void)
 			}
 		}
 	}
-	printf("Warning: un-recognized chip ID, please update bootloader!\n");
+	printf("Warning: un-recognized chip, please update bootloader!\n");
 
 	return match;
 }

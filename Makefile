@@ -45,11 +45,11 @@ TOPDIR	:= $(shell if [ "$$PWD" != "" ]; then echo $$PWD; else pwd; fi)
 export	TOPDIR
 export CONFIG_BOOTDELAY=5
 
-ifeq ($(MT7621_MP), y)
-CONFIG_CROSS_COMPILER_PATH ?= /opt/mips-2012.03/bin
-else
-CONFIG_CROSS_COMPILER_PATH ?= /opt/buildroot-gcc342/bin
-endif
+#ifeq ($(MT7621_MP), y)
+CONFIG_CROSS_COMPILER_PATH ?= $(TOPDIR)/toolchain/mips-2012.03/bin
+#else
+#CONFIG_CROSS_COMPILER_PATH ?= $(TOPDIR)/toolchain/buildroot-gcc342/bin
+#endif
 
 ifeq (include/config.mk,$(wildcard include/config.mk))
 # load ARCH, BOARD, and CPU configuration
