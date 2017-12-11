@@ -1,17 +1,3 @@
-if [ "$MT7621_FPGA_BOARD" = "y" -o "$MT7621_ASIC_BOARD" = "y" ]; then
-string 'Cross Compiler Path' CONFIG_CROSS_COMPILER_PATH  /opt/mips-2012.03/bin/
-elif [ "$RT2880_FPGA_BOARD" = "y" -o "$RT2880_ASIC_BOARD" = "y" -o
-	  "$RT3052_FPGA_BOARD" = "y" -o "$RT3052_ASIC_BOARD" = "y" -o
-	  "$RT3352_FPGA_BOARD" = "y" -o "$RT3352_ASIC_BOARD" = "y" -o
-	  "$RT3883_FPGA_BOARD" = "y" -o "$RT3883_ASIC_BOARD" = "y" -o
-	  "$RT5350_FPGA_BOARD" = "y" -o "$RT5350_ASIC_BOARD" = "y" -o
-	  "$RT6855A_FPGA_BOARD" = "y" -o "$RT6855A_ASIC_BOARD" = "y" -o
-	  "$MT7620_FPGA_BOARD" = "y" -o "$MT7620_ASIC_BOARD" = "y" -o
-	  "$MT7628_FPGA_BOARD" = "y" -o "$MT7628_ASIC_BOARD" = "y" ]; then
-string 'Cross Compiler Path' CONFIG_CROSS_COMPILER_PATH  /opt/buildroot-gcc342/bin
-fi
-comment ""
-
 mainmenu_name 'Uboot Configuration'
                   
 define_bool ASIC_BOARD y
@@ -1405,7 +1391,9 @@ define_bool RALINK_DUAL_VPE_FUN	y
 
 bool "Partition LAN/WAN" LAN_WAN_PARTITION
 if [ "$LAN_WAN_PARTITION" = "y" ]; then
- choice 'LAN/WAN Board Layout' "W/LL RALINK_DEMO_BOARD_PVLAN"
+ choice 'LAN/WAN Board Layout' "W/LLLL RALINK_DEMO_BOARD_PVLAN \
+		                LLLL/W RALINK_EV_BOARD_PVLAN 
+			       "
 fi
 
 bool "DDR ACTiming Setting" DDR_ACT_SETTING
