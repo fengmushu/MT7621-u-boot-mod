@@ -63,7 +63,7 @@ extern unsigned int  CFG_BLOCKSIZE;
 #ifdef RT2880_ASIC_BOARD
 #define CPU_CLOCK_RATE	266666666 /* default: 150 MHz clock for the MIPS core */
 #elif defined (RT3052_ASIC_BOARD)
-#define CPU_CLOCK_RATE	384000000 CONFIG_BOOTDELAY
+#define CPU_CLOCK_RATE	384000000 
 #elif defined (RT3352_ASIC_BOARD)
 #define CPU_CLOCK_RATE	400000000 
 #elif defined (RT6855_ASIC_BOARD) || defined (RT6855A_ASIC_BOARD)
