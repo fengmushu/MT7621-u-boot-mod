@@ -20,15 +20,15 @@
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston,
 # MA 02111-1307 USA
 #
-v=$(shell \
-$(AS) --version|grep "GNU assembler"|awk -F . '{print $$2}')
-MIPSFLAGS=$(shell \
-if [ "$v" -lt "14" ]; then \
-	echo "-mabicalls"; \
-else \
-	echo "-mabicalls"; \
-fi)
+#v=$(shell $(AS) --version|grep "GNU assembler"|awk -F . '{print $$2}')
+#MIPSFLAGS=$(shell \
+#if [ "$v" -lt "14" ]; then \
+#	echo "-mabicalls"; \
+#else \
+#	echo "-mabicalls"; \
+#fi)
 # 	Dennis Lee, Big Endian need -EB otherwise remove -EB
 #	echo "-mcpu=4kc -EB -mabicalls"; 
 #	echo "-march=4kc -mtune=4kc -Wa,-mips_allow_branch_to_undefined -mabicalls"; 
-PLATFORM_CPPFLAGS += $(MIPSFLAGS)
+# PLATFORM_CPPFLAGS += $(MIPSFLAGS)
+PLATFORM_CPPFLAGS += "-mabicalls"
